@@ -6,15 +6,18 @@
     <title>Weather Forecast</title>
 </head>
 <body>
-    <section>
+    <section class="content">
         <h1>Weather</h1>
-        <p>You can see the Weather today and the temperature of tomorrow</p>
+        <p>You can see the Weather today and the temperature of tomorrow.</p>
         <form id="form" action="" novalidate>
             <label for="city">Enter a City: </label>
             <input type="text" id="city" name="city" required>
             <button type="submit" id="submit">Give me the prediction</button>
         </form>
     </section>
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
     <section id="weatherTable">
         <table>
             <thead>
@@ -49,7 +52,7 @@
                     <td id="feelsLikeTemp"></td>
                     <td id="humidity"></td>
                     <td id="weatherDescription"></td>
-                    <td id="weatherIcon"></td>
+                    <td id="weatherIcon" class="img"></td>
                     <td id="tomorowTemp"></td>
                 </tr>
             </tbody>

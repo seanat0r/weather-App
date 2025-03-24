@@ -17,6 +17,7 @@ export class BuildTable {
         const icon = await loadWeatherIcon(picName);
         const img = document.createElement("img");
         img.src = icon;
+        img.classList.add("weatherIcon");
         img.alt = "Weather Icon";
         this.weatherIcon.appendChild(img);
 

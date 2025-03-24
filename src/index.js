@@ -17,18 +17,31 @@ const table = new BuildTable();
 
 form.form.addEventListener("submit", handleSubmit);
 
-async function handleSubmit (event) {
+async function handleSubmit(event) {
 	console.log("Form submitted");
 	event.preventDefault();
 	const checkForm = form.procceed();
 
-	if (!checkForm) return console.log("Please enter a city name");
+	document.querySelector("#loading").style.display = "flex";
+
+	if (!checkForm) {
+		document.getElementById("loading").style.display = "none";
+		console.log("Please enter a city name");
+		return;
+	}
 	console.log("City name is valid");
 
 	const city = form.getCity();
-	const data = await weatherData(city);
-	if (data) buildTable(data);
-};
+
+	try {
+		const data = await weatherData(city);
+		if (data) buildTable(data);
+	} catch (error) {
+		console.log(error);
+	} finally {
+		document.getElementById("loading").style.display = "none";
+	}
+}
 
 async function weatherData(city) {
 	//get the Weather data
