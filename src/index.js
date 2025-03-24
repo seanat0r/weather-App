@@ -13,10 +13,11 @@ import "./styles/style.css";
 //Your code here
 const weather = new WeatherAPI();
 const form = new Form();
+const table = new BuildTable();
 
 form.form.addEventListener("submit", handleSubmit);
 
-function handleSubmit (event) {
+async function handleSubmit (event) {
 	console.log("Form submitted");
 	event.preventDefault();
 	const checkForm = form.procceed();
@@ -25,7 +26,8 @@ function handleSubmit (event) {
 	console.log("City name is valid");
 
 	const city = form.getCity();
-	weatherData(city);
+	const data = await weatherData(city);
+	if (data) buildTable(data);
 };
 
 async function weatherData(city) {
@@ -33,7 +35,12 @@ async function weatherData(city) {
 	try {
 		const data = await weather.procceed(city);
 		console.log(data);
+		return data;
 	} catch (error) {
 		console.log(error);
 	}
+}
+
+async function buildTable(data) {
+	table.procceed(data);
 }
