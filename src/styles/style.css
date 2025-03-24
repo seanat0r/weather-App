@@ -1,4 +1,6 @@
 html, body {
+    height: 100%;
+    width: 100%;
     background-color: rgb(188, 255, 255);
 }
 /** Loadingscreen */
@@ -123,9 +125,9 @@ td {
     height: 7rem;
     text-align: center;
     
-
 }
 .img {
+    width: 100%;
     text-align: center;
     vertical-align: middle;
     display: flex;
@@ -134,4 +136,10 @@ td {
 .weatherIcon {
     max-width: 100%;
     height: auto;
+}
+
+/** ANIMATION WAVE */
+
+#visual {
+    width: 100vw;
 }
