@@ -9,6 +9,10 @@ export class BuildTable {
 		this.weatherIcon = document.getElementById("weatherIcon");
 		this.tomorowTemperature = document.getElementById("tomorowTemp");
 	}
+    async #loadImage(picName) {
+        
+    }
+
 	#deleteTableData() {
 		this.cityName.textContent = "";
 		this.temperature.textContent = "";
@@ -34,6 +38,7 @@ export class BuildTable {
 			this.table.style.display = "block";
 		}
 		this.#deleteTableData();
+        this.#loadImage(data.weatherIcon);
 		this.#setTableData(data);
 	}
 }
