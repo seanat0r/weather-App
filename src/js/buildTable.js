@@ -10,7 +10,16 @@ export class BuildTable {
 		this.tomorowTemperature = document.getElementById("tomorowTemp");
 	}
     async #loadImage(picName) {
-        
+        const loadWeatherIcon = async (picName) => {
+            const icon = await import (`../assets/${picName}.png`);
+            return icon.default;
+        }
+        const icon = await loadWeatherIcon(picName);
+        const img = document.createElement("img");
+        img.src = icon;
+        img.alt = "Weather Icon";
+        this.weatherIcon.appendChild(img);
+
     }
 
 	#deleteTableData() {
@@ -19,7 +28,7 @@ export class BuildTable {
 		this.feelsLike.textContent = "";
 		this.humidity.textContent = "";
 		this.weatherDescription.textContent = "";
-		this.weatherIcon.src = "";
+		this.weatherIcon.innerHTML = "";
 		this.tomorowTemperature.textContent = "";
 	}
 	#setTableData(data) {
@@ -28,7 +37,6 @@ export class BuildTable {
 		this.feelsLike.textContent = `${data.feelsLike}°C`;
 		this.humidity.textContent = data.humidity;
 		this.weatherDescription.textContent = data.weatherDescription;
-		this.weatherIcon.src = data.weatherIcon;
 		this.tomorowTemperature.textContent = `${data.tomorowTemperature}°C`;
 	}
 
