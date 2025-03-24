@@ -9,11 +9,63 @@
     <section>
         <h1>Weather</h1>
         <p>You can see the Weather today and the temperature of tomorrow</p>
-        <form action="" novalidate>
+        <form id="form" action="" novalidate>
             <label for="city">Enter a City: </label>
             <input type="text" id="city" name="city" required>
             <button type="submit" id="submit">Give me the prediction</button>
         </form>
+    </section>
+    <section id="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Temperature
+                    </th>
+                    <th>
+                        Fells Like
+                    </th>
+                    <th>
+                        Humidity
+                    </th>
+                    <th>
+                        Weather Description
+                    </th>
+                    <th>
+                        Weather Icon
+                    </th>
+                    <th>
+                        Tomorrow Temperature
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="cityName"></td>
+                </tr>
+                <tr>
+                    <td id="temperature"></td>
+                </tr>
+                <tr>
+                    <td id="fellsLikeTmp"></td>
+                </tr> 
+                <tr>
+                    <td id="humidity"></td>
+                </tr>
+                <tr>
+                    <td id="weatherDescription"></td>
+                </tr>
+                <tr>
+                    <td id="weatherIcon"></td>
+                </tr>
+                <tr>
+                    <td id="tomorrowTemp"></td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 </body>
 </html>
